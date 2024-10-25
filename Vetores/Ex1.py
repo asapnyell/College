@@ -1,6 +1,12 @@
-meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+def mesDoAno(mes):
+    meses= ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+
+    if mes <1 or mes > 12:
+        mes = "Mes invalido"
+    else:
+        mes = (meses[mes -1])
+    return mes
+    
 mes = int(input("Digite o numero do mes: "))
-if mes <1 or mes > 12:
-    print("Mes invalido")
-else:
-    print(meses[mes - 1])
+
+print(mesDoAno(mes))
