@@ -7,6 +7,6 @@ def soma (a,b):
         return a
     elif b > a:
         return soma(b,a)
-    return soma(a + 1,b - 1)
+    return soma(a+1,b-1)
 
 print(soma(5,3))
