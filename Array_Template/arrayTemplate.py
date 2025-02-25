@@ -1,7 +1,7 @@
 def reverse(arr):
     revers = []
     for num in range(len(arr)):
-        revers.append(arr[-(num + 1)])
+        revers.append(arr[-(num + 1)]) # Adiciona os elementos da lista original de trás para frente
     return revers
 
 
