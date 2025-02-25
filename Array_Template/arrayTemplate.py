@@ -96,8 +96,6 @@ def show(matrix):
 
 def main():
     arr = [-3000, 100, 240, 120, -300, 1000]
-    p1 = 'ROMA'
-    p2 = "AMOR"
     print('arr  ', arr)
     print('reverse ', reverse(arr))
     print('max ', find_max(arr), 'min ', find_min(arr))
