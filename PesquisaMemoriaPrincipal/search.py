@@ -230,4 +230,3 @@ if __name__ == '__main__':
 #print('iterative block search ',iterativeBlockedSearch(arr,key))
 #print('recursive block binary search ',iterativeBlockedSearchBS(arr,key))
 #print('recursive block binary search ',blockedBinarySearch(arr,key))
-print('*'*10)
