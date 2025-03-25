@@ -1,4 +1,5 @@
 # Division and Conquest Template
+
 def binarySearch(alist,key):
     def body(alist,key,low,high):
         mid=(low+high) //2
@@ -72,10 +73,26 @@ def searchPosition(arr,target):
 
 #from bisect import bisect_left, bisect_right
 def bisect_right(arr,target):
-    return bisect.bisect_right(arr, target)
+    def body(arr, target, low, high):
+        if low >= high:
+            return low
+        mid = (low + high) // 2
+        if arr[mid] <= target:
+            return body(arr, target, mid + 1, high)
+        else:
+            return body(arr, target, low, mid)
+    return body(arr, target, 0, len(arr))
 
 def bisect_left(arr,target):
-    return bisect.bisect_left(arr, target)
+    def body(arr, target, low, high):
+        if low >= high:
+            return low
+        mid = (low + high) // 2
+        if arr[mid] < target:
+            return body(arr, target, mid + 1, high)
+        else:
+            return body(arr, target, low, mid)
+    return body(arr, target, 0, len(arr))
 
 def countFreq(arr, target):    
     low = bisect_left(arr, target)
@@ -240,4 +257,4 @@ def prob9():
 #prob6()    
 #prob7()
 #prob8()
-prob9()
+#prob9()
