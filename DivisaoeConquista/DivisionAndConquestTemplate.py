@@ -43,7 +43,7 @@ def find_min(arr):
         if lo == hi:  # Caso base: se há apenas um elemento, ele é o máximo
             return arr[lo]
         mid = (lo + hi) // 2
-        left_min = body(arr, lo, hi)
+        left_min = body(arr, lo, mid)
         right_min = body(arr, mid + 1, hi)
         return min(left_min, right_min)
     return body(arr, 0, len(arr) - 1)
@@ -59,14 +59,23 @@ def find_sum(arr):
     return body(arr, 0, len(arr) - 1)
 
 def searchPosition(arr,target):
-     pass
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return low
 
 #from bisect import bisect_left, bisect_right
 def bisect_right(arr,target):
-     pass
+    return bisect.bisect_right(arr, target)
 
 def bisect_left(arr,target):
-      pass
+    return bisect.bisect_left(arr, target)
 
 def countFreq(arr, target):    
     low = bisect_left(arr, target)
@@ -77,7 +86,19 @@ def countFreq(arr, target):
     return righ - low
 
 def recursiveSearch2DMatrix(mat, x):
-     pass
+    def search(mat, row_low, row_high, col_low, col_high):
+        if row_low > row_high or col_low > col_high:
+            return False
+        row_mid = (row_low + row_high) // 2
+        col_mid = (col_low + col_high) // 2
+        if mat[row_mid][col_mid] == x:
+            return True
+        elif mat[row_mid][col_mid] < x:
+            return search(mat, row_mid + 1, row_high, col_low, col_high) or search(mat, row_low, row_high, col_mid + 1, col_high)
+        else:
+            return search(mat, row_low, row_mid - 1, col_low, col_high) or search(mat, row_low, row_high, col_low, col_mid - 1)
+    return search(mat, 0, len(mat) - 1, 0, len(mat[0]) - 1)
+
 
 def prob1():
     print('Binary Search\nExemplo 1 :')
@@ -219,4 +240,4 @@ def prob9():
 #prob6()    
 #prob7()
 #prob8()
-#prob9()
+prob9()
