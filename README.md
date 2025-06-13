@@ -1,3 +1,3 @@
 # College
- Lista de Exercicios
- Exemplos...etc
+ Lista de Exercicios (PYTHON)
+
