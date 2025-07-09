@@ -36,7 +36,16 @@ class binaryTree:
     
     def dfs(self,node):
         "Depth-First Search (DFS) Recursive"
-        pass
+        ans = []
+        def body(node):
+            if not node:
+                return
+            else:
+                ans.append(node.value)
+                body(node.left)
+                body(node.right)
+        body(node)
+        return ans
 
     def preOrder(self,node):
         return self.dfs(node)
@@ -64,16 +73,17 @@ class binaryTree:
             raise TypeError ('Arvore nao esta vazia')
         self.root = TreeNode(value)
         self.size += 1
-         
+
     def insertLeft(self,currNode,value):
         if not currNode:
-            raise TypeError('N-o nao esta vazia')
+            raise TypeError('Nó nao esta vazia')
         else:
             if currNode.left:
                 currNode.left.value = value
             else:
                 currNode.left = TreeNode(value)
                 self.size += 1
+
     def insertRight(self,currNode,value):
         if not currNode:
             raise TypeError('N-o corrente é NONE')
@@ -130,5 +140,6 @@ if __name__ == '__main__':
         t1.insertLeft(t1.root.right,110)
         t1.insertRight(t1.root.right,150)
         t1.show()
+        print(t1.dfs)
 
 
