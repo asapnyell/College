@@ -1,3 +1,6 @@
+import math
+
+
 class Pessoa:
 
     def __init__(self):
@@ -13,7 +16,7 @@ pessoa = Pessoa()
 
 nome = input("Digite seu nome: ")
 pessoa.setNome(nome)
-print(f"Olá, {pessoa.getNome()}!")
+print(f"Olá, {pessoa.getNome()}! Seja bem-vindo(a)!")
 
 print("\n")
 # 2) Leia dois números inteiros, converta e exiba a soma
@@ -57,21 +60,17 @@ print("\n")
 print("Verificar se um número é par ou ímpar.")
 num = int(input("Digite um número inteiro: "))
 
-def eh_par(n):
-    if n % 2 == 0:
-        return True
-    return False
+def par_impar(num):
+    if num % 2 == 0:
+        return "Par"
+    return "Ímpar"
 
-if eh_par(num):
-    print(f"O número {num} é par")
-else:
-    print(f"O número {num} é ímpar")
+print(f"O número {num} é: {par_impar(num)}")
 
 print("\n")
 # 6) Situação do aluno pela média
 print("Verificar a situação do aluno pela média.")
 media = float(input("Digite a média do aluno: "))
-
 
 def situacao(media):
 
@@ -90,11 +89,16 @@ print("Encontrar o maior número entre três números.")
 a = int(input("Digite o primeiro número: "))
 b = int(input("Digite o segundo número: "))
 c = int(input("Digite o terceiro número: "))
-maior = a
-if b > maior:
-    maior = b
-if c > maior:
-    maior = c
+
+def maior_de_tres(a, b, c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+    
+maior = maior_de_tres(a, b, c)
 print(f"O maior número é: {maior}")
 
 print("\n")
@@ -102,10 +106,10 @@ print("\n")
 print("Verificar se um ano é bissexto.")
 ano = int(input("Digite um ano: "))
 if (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0):
-    print("Ano bissexto")
+    print(f"{ano} é um ano bissexto")
 else:
-    print("Ano não bissexto")
-""""""
+    print(f"{ano} não é um ano bissexto")
+
 print("\n")
 # 9) Contagem regressiva
 print("Contagem regressiva.")
@@ -150,7 +154,8 @@ while palpite != numero_secreto:
         print("O número secreto é maior!")
     elif palpite > numero_secreto:
         print("O número secreto é menor!")
-print("Parabéns! Você acertou!")
+        continue
+print(f"Parabéns! Você acertou! o numero secreto é {numero_secreto}.")
 
 print("\n")
 # 13) Tabuada
@@ -168,7 +173,7 @@ contador = 0
 for letra in texto:
     if letra in vogais:
         contador += 1
-print(f"Número de vogais: {contador}")
+print(f"Número de vogais na frase '{texto}': {contador}")
 
 print("\n")
 # 15) Múltiplos de 3 de 1 a 100
@@ -191,23 +196,23 @@ print(f"{n}! = {fatorial}")
 print("\n")
 # 17) Função média de 3 números
 print("Função para calcular a média de três números.")
-def media3(a, b, c):
+def media(a, b, c):
     return (a + b + c) / 3
 
-print("Média:", media3(7, 8, 9))
+print("Média:", media(7, 8, 9))
 
 print("\n")
 # 18) Função para verificar número primo
 print("Função para verificar se um número é primo.")
 def eh_primo(n):
-    if n < 2:
+    if n < 2: # Números menores ou iguais a 1, por definição, não são primos.
         return False
-    for i in range(2, int(n**0.5) + 1):
+    for i in range(2, int(math.sqrt(n)) + 1):
         if n % i == 0:
             return False
     return True
 
-print("7 é primo?", eh_primo(7))
+print("97 é primo?", eh_primo(97))
 print("10 é primo?", eh_primo(10))
 
 print("\n")
