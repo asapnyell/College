@@ -58,14 +58,14 @@ print(f"A área do círculo é: {calcular_area(raio):.2f}")
 print("\n")
 # 5) Informe se o número é par ou ímpar
 print("Verificar se um número é par ou ímpar.")
-num = int(input("Digite um número inteiro: "))
+numero = int(input("Digite um número inteiro: "))
 
 def par_impar(num):
     if num % 2 == 0:
         return "Par"
     return "Ímpar"
 
-print(f"O número {num} é: {par_impar(num)}")
+print(f"O número {numero} é: {par_impar(numero)}")
 
 print("\n")
 # 6) Situação do aluno pela média
@@ -81,24 +81,25 @@ def situacao(media):
     else:
         return "Reprovado"
     
-print(f"Situação do aluno {nome}: {situacao(media)}")
+print(f"Situação do aluno {nome}: {situacao(media)}") # Aqui peguei o nome que foi instanciado em de Pessoa()
+
 
 print("\n")
 # 7) Maior entre três números
 print("Encontrar o maior número entre três números.")
-a = int(input("Digite o primeiro número: "))
-b = int(input("Digite o segundo número: "))
-c = int(input("Digite o terceiro número: "))
+primeiro_numero = int(input("Digite o primeiro número: "))
+segundo_numero = int(input("Digite o segundo número: "))
+terceiro_numero = int(input("Digite o terceiro número: "))
 
-def maior_de_tres(a, b, c):
-    if a >= b and a >= c:
-        return a
-    elif b >= a and b >= c:
-        return b
+def maior_de_tres(numero_primeiro, numero_segundo, numero_terceiro):
+    if numero_primeiro >= numero_segundo and numero_primeiro >= numero_terceiro:
+        return numero_primeiro
+    elif numero_segundo >= numero_primeiro and numero_segundo >= numero_terceiro:
+        return numero_segundo
     else:
-        return c
+        return numero_terceiro
     
-maior = maior_de_tres(a, b, c)
+maior = maior_de_tres(primeiro_numero,segundo_numero,terceiro_numero)
 print(f"O maior número é: {maior}")
 
 print("\n")
@@ -113,10 +114,10 @@ else:
 print("\n")
 # 9) Contagem regressiva
 print("Contagem regressiva.")
-n = int(input("Digite um número para a contagem regressiva: "))
-while n >= 0:
-    print(n)
-    n -= 1
+valor = int(input("Digite um número para a contagem regressiva: "))
+while valor >= 0:
+    print(valor)
+    valor -= 1
 
 print("\n")
 # 10) Sistema de senha
@@ -160,9 +161,9 @@ print(f"Parabéns! Você acertou! o numero secreto é {numero_secreto}.")
 print("\n")
 # 13) Tabuada
 print("Tabuada de um número.")
-n = int(input("Digite um número para ver a tabuada: "))
+valor = int(input("Digite um número para ver a tabuada: "))
 for i in range(1, 11):
-    print(f"{n} x {i} = {n * i}")
+    print(f"{valor} x {i} = {valor * i}")
 
 print("\n")
 # 14) Contar vogais em uma string
