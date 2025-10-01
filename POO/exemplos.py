@@ -1,17 +1,16 @@
-# 18) Função para verificar número primo
-import math
+# 7) Maior entre três números
+print("Encontrar o maior número entre três números.")
+primeiro_numero = int(input("Digite o primeiro número: "))
+segundo_numero = int(input("Digite o segundo número: "))
+terceiro_numero = int(input("Digite o terceiro número: "))
 
+def maior_de_tres(numero_primeiro, numero_segundo, numero_terceiro):
+    if numero_primeiro >= numero_segundo and numero_primeiro >= numero_terceiro:
+        return numero_primeiro
+    elif numero_segundo >= numero_primeiro and numero_segundo >= numero_terceiro:
+        return numero_segundo
+    else:
+        return numero_terceiro
 
-print("Função para verificar se um número é primo.")
-def eh_primo(n):
-    if n < 2: # Números menores ou iguais a 1, por definição, não são primos.
-        return False
-    for i in range(2, int(math.sqrt(n)) + 1): 
-        if n % i == 0:
-            return False
-    return True
-
-raiz_quadrada = math.sqrt(7)
-print(raiz_quadrada)
-print("100 é primo?", eh_primo(100))
-print("97 é primo?", eh_primo(97))
+maior = maior_de_tres(primeiro_numero, segundo_numero, terceiro_numero)
+print(f"O maior número é: {maior}")
