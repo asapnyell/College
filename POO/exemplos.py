@@ -14,3 +14,14 @@ def maior_de_tres(numero_primeiro, numero_segundo, numero_terceiro):
 
 maior = maior_de_tres(primeiro_numero, segundo_numero, terceiro_numero)
 print(f"O maior número é: {maior}")
+
+# 20) Função Fibonacci
+print("Função para gerar sequência de Fibonacci.")
+def fibonacci(n):
+    seq = [0, 1]
+    while len(seq) < n:
+        seq.append(seq[-1] + seq[-2])
+    return seq[:n]
+
+print("Fibonacci (10 termos):", fibonacci(10))
+print("Fibonacci (5 termos):", fibonacci(5))
