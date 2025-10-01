@@ -1,17 +1,17 @@
 import math
 
 
-class Pessoa:
+class User:
 
-    def __init__(self):
-        self.nome = ''
+    def __init__(self,nome):
+        self.nome = nome
     def getNome(self):
         return self.nome
     def setNome(self,nome): 
         self.nome = nome
 
-pessoa = Pessoa()
-
+pessoa = User("")
+print("Bem-vindo(a) ao programa de exercícios!\n")
 # 1) Leia um nome do usuário e imprima: Olá, <nome>!
 
 nome = input("Digite seu nome: ")
@@ -22,13 +22,13 @@ print("\n")
 # 2) Leia dois números inteiros, converta e exiba a soma
 
 print("Vamos somar dois números inteiros.")
-n1 = int(input("Digite o primeiro número inteiro: "))
-n2 = int(input("Digite o segundo número inteiro: "))
+numero1 = int(input("Digite o primeiro número inteiro: "))
+numero2 = int(input("Digite o segundo número inteiro: "))
 
 def somar(a, b):
     return a + b
 
-print(f"A soma entre {n1} + {n2} é: {somar(n1, n2)}")
+print(f"A soma entre {numero1} + {numero2} é: {somar(numero1, numero2)}")
 
 print("\n")
 # 3) Leia três notas, calcule a média e mostre com 2 casas decimais
@@ -60,8 +60,8 @@ print("\n")
 print("Verificar se um número é par ou ímpar.")
 numero = int(input("Digite um número inteiro: "))
 
-def par_impar(num):
-    if num % 2 == 0:
+def par_impar(numero):
+    if numero % 2 == 0:
         return "Par"
     return "Ímpar"
 
