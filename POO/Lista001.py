@@ -1,7 +1,7 @@
 import math
 
 
-class User:
+class Usuario:
 
     def __init__(self,nome):
         self.nome = nome
@@ -10,7 +10,7 @@ class User:
     def setNome(self,nome): 
         self.nome = nome
 
-pessoa = User("")
+pessoa = Usuario("")
 print("Bem-vindo(a) ao programa de exercícios!\n")
 # 1) Leia um nome do usuário e imprima: Olá, <nome>!
 
