@@ -188,11 +188,11 @@ print()
 print("\n")
 # 16) Fatorial com for
 print("Calcular o fatorial de um número.")
-n = int(input("Digite um número para calcular o fatorial: "))
+valor = int(input("Digite um número para calcular o fatorial: "))
 fatorial = 1
-for i in range(1, n + 1):
+for i in range(1, valor + 1):
     fatorial *= i
-print(f"{n}! = {fatorial}")
+print(f"{valor}! = {fatorial}")
 
 print("\n")
 # 17) Função média de 3 números
@@ -228,11 +228,13 @@ print(saudar("João", "Java"))
 print("\n")
 # 20) Função Fibonacci
 print("Função para gerar sequência de Fibonacci.")
-def fibonacci(n):
-    seq = [0, 1]
-    while len(seq) < n:
-        seq.append(seq[-1] + seq[-2])
-    return seq[:n]
+def fibonacci_recursivo(n):
+   # Casos base da recursão
+   if n <= 1:
+       return n
+   else:
+       # Chamada recursiva para somar os dois termos anteriores
+       return fibonacci_recursivo(n-1) + fibonacci_recursivo(n-2)
 
-print("Fibonacci (10 termos):", fibonacci(10))
-print("Fibonacci (5 termos):", fibonacci(5))
+valor = int(input("Digite um número para calcular o Fibonacci: "))
+print(fibonacci_recursivo(valor))
