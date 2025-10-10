@@ -1,4 +1,3 @@
-import math
 
 # 17) Função média de 3 números
 print("Função para calcular a média de três números.")
@@ -8,16 +7,21 @@ def media(a, b, c):
 print("Média:", media(7, 8, 9))
 
 print("\n")
-# 18) Função para verificar número primo
+# 18) Função para verificar número primo 
 print("Função para verificar se um número é primo.")
-def eh_primo(n):
-    if n < 2: # Números menores ou iguais a 1, por definição, não são primos.
-        return False
-    for i in range(2, int(math.sqrt(n)) + 1): 
-        if n % i == 0:
-            return False
-    return True
 
+def eh_primo(n):
+    if n < 2:  # Números menores que 2 não são primos
+        return False
+
+    #  elevar (n)**0.5 é o mesmo que raiz quadrada. 
+    raiz = int(n ** 0.5) + 1 # +1 para incluir a raiz na verificação. Para descobrir se "n" tem algum divisor além de 1 e ele mesmo, basta procurar por divisores até a sua raiz quadrada. 
+    for i in range(2, raiz):
+        if n % i == 0:  # Se n for divisível por i, não é primo
+            return False
+    return True  # Se não encontrou divisores, é primo
+
+# Testando a função
 print("97 é primo?", eh_primo(97))
 print("10 é primo?", eh_primo(10))
 
