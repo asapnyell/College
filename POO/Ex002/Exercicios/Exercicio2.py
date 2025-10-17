@@ -1,14 +1,14 @@
-# Definindo a classe base Funcionario
-class Funcionario:
-    """
-    Classe base para representar um funcionário genérico.
-    """
-    def __init__(self, nome: str, salario: float):
-        """
-        Construtor da classe Funcionario. tipando os parâmetros.
-        """
+"""
+Crie a classe Funcionario com atributos nome e salario.
+Crie a subclasse Gerente, que possui também setor.
+Sobrescreva o método __str__ para mostrar todas as informações.
+
+"""
+class Funcionario: # Classe base Funcionario
+ 
+    def __init__(self, nome: str, salario: float): # Construtor da classe Funcionario. tipando os parâmetros.
+       
         self._nome = nome
-        # Boas práticas: Armazenar valores monetários como float ou Decimal
         self._salario = salario
 
     # Sobrescrevendo o método mágico __str__
@@ -16,15 +16,13 @@ class Funcionario:
         """
         Retorna uma representação em string do objeto Funcionario.
         """
-        # Formatando o salário para melhor visualização
-        salario_formatado = f"R${self._salario:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-        return f"Funcionário: {self._nome}, Salário: {salario_formatado}"
+        return f"Nome: {self._nome}, Salário: R$ {self._salario:.2f}"
 
 
 # Definindo a subclasse Gerente, que herda de Funcionario
 class Gerente(Funcionario):
     """
-    Classe que representa um Gerente, herdando de Funcionario.
+    Subclasse que representa um Gerente, herdando de Funcionario.
     Possui o atributo específico 'setor'.
     """
     def __init__(self, nome: str, salario: float, setor: str):
@@ -42,13 +40,13 @@ class Gerente(Funcionario):
         """
         # Reutilizando a representação da classe base e adicionando o setor.
         # Removemos 'Funcionário: ' da string da superclasse para maior clareza.
-        base_str = super().__str__().replace("Funcionário: ", "")
-        return f"Gerente: {base_str}, Setor: {self._setor}"
+        informacao_base = super().__str__().replace("Funcionário: ", "")
+        return f" {informacao_base}, Setor: {self._setor}"
 
 
-# --- Teste do Exercício 2 ---
-print("\n--- Teste do Exercício 2 (Funcionário) ---")
+# Criando uma instância de Funcionario
 func1 = Funcionario("Ana Silva", 3500.00)
+# Criando uma instância de Gerente
 gerente1 = Gerente("Bruno Costa", 12500.50, "TI")
 
 # O uso de print() chama automaticamente o método __str__
