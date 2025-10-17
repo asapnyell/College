@@ -1,5 +1,8 @@
-## Exercício 4 – Herança Múltipla
+"""
+Crie duas classes: Nadador (com método nadar()) e Corredor (com método correr()).
+Depois, crie a classe Triatleta herdando das duas e testando os métodos.
 
+"""
 
 # Definindo a classe Nadador
 class Nadador:
@@ -59,4 +62,3 @@ triatleta1.correr()  # Método herdado de Corredor
 triatleta1.pedalar() # Método próprio de Triatleta
 
 triatleta1.competir()
-print("-" * 35)
