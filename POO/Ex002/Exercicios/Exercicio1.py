@@ -15,7 +15,7 @@ class Veiculo: # Classe base para representar um veículo genérico.
        
 
     def detalhes(self): # Método que exibe as informações básicas do veículo.
-       pass # Método vazio, que será sobrescrito nas subclasses.
+       print(f"Marca: {self._marca}, Ano: {self._ano}")
 
 
 # Definindo a subclasse Carro, que herda de Veiculo
