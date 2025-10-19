@@ -40,23 +40,18 @@ class Triatleta(Nadador, Corredor):
         """
         print("Pedalando na estrada...")
 
-    # Opcional: Um método que executa as três ações
-    def competir(self):
-        """
-        Executa todas as ações de um triatlo.
-        """
+    def competir(self): # método que executa as três ações do Triatleta
+
         print("\nIniciando a competição de Triatlo:")
         self.nadar()
         self.pedalar()
         self.correr()
         print("Triatlo concluído!")
 
-
-# --- Teste do Exercício 4 ---
-print("\n--- Teste do Exercício 4 (Herança Múltipla) ---")
+# Testando a classe Triatleta
 triatleta1 = Triatleta()
 
-print("Testando os métodos herdados e o próprio:")
+print("Testando os métodos herdados e o próprio do Triatleta:")
 triatleta1.nadar()   # Método herdado de Nadador
 triatleta1.correr()  # Método herdado de Corredor
 triatleta1.pedalar() # Método próprio de Triatleta
