@@ -59,7 +59,9 @@ class Piano(InstrumentoMusical):
         """Sobrescrita criativa do método tocar."""
         print(f"{self.nome}: 🎹 'Plin plin plon'... Tocando uma sonata de Beethoven.")
     
-    # Nota: O Piano usará o método afinar() padrão da classe pai.
+    def afinar(self):
+        """Sobrescrita opcional do método afinar."""
+        print(f"{self.nome}: Ajustando as cordas internas... 'Ding dong ding'. Pronto para o concerto!")
 
 class Bateria(InstrumentoMusical):
     """Representa uma Bateria."""
@@ -118,8 +120,7 @@ def executar_show(instrumentos: list[InstrumentoMusical]):
     """
     print("\n--- 🎶 O SHOW VAI COMEÇAR! 🎶 ---")
     for instrumento in instrumentos:
-        # A mágica do polimorfismo acontece aqui:
-        # O Python sabe qual método tocar() chamar (o do Violao, o do Piano, etc.)
+        # Chamada polimórfica!
         instrumento.tocar()
     print("--- 🎶 Show finalizado! Aplausos! 🎶 ---")
 
@@ -134,6 +135,7 @@ def preparar_orquestra(instrumentos: list[InstrumentoMusical]):
         # Outra chamada polimórfica!
         instrumento.afinar()
     print("--- Instrumentos prontos! ---")
+
 
 
 # --- 4. Execução Principal do Programa ---
@@ -156,9 +158,10 @@ if __name__ == "__main__":
 
     # 4. Chamar a função polimórfica principal
     executar_show(orquestra)
+    executar_show([])
 
     # Teste de flexibilidade: e se for um show "solo"?
-    # A mesma função funciona com apenas um item.
+    # função funciona com apenas um item.
     # executar_show([meu_sax])
 
 
