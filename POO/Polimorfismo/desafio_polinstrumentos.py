@@ -43,11 +43,11 @@ class Violao(InstrumentoMusical):
 
     def tocar(self):
         """Sobrescrita criativa do método tocar."""
-        print(f"{self.nome}: 🎸 'Strumming chords'... Soando um belo dedilhado clássico.")
+        print(f"{self.nome}:'Strumming chords'... Soando um belo dedilhado clássico.")
 
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
-        print(f"{self.nome}: Girando as tarraxas... 'Tlim... tlim... TLOIM'. Afinado!")
+        print(f"{self.nome}:'Girando as tarraxas... Tlim... tlim... TLOIM'. Afinado!")
 
 class Piano(InstrumentoMusical):
     """Representa um Piano."""
@@ -57,11 +57,11 @@ class Piano(InstrumentoMusical):
 
     def tocar(self):
         """Sobrescrita criativa do método tocar."""
-        print(f"{self.nome}: 🎹 'Plin plin plon'... Tocando uma sonata de Beethoven.")
+        print(f"{self.nome}:'Plin plin plon'... Tocando uma sonata de Beethoven.")
     
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
-        print(f"{self.nome}: Ajustando as cordas internas... 'Ding dong ding'. Pronto para o concerto!")
+        print(f"{self.nome}: Ajustando as cordas internas... 'Ding dong ding'.")
 
 class Bateria(InstrumentoMusical):
     """Representa uma Bateria."""
@@ -71,7 +71,7 @@ class Bateria(InstrumentoMusical):
 
     def tocar(self):
         """Sobrescrita criativa do método tocar."""
-        print(f"{self.nome}: 🥁 'BADUM-TSS!'... Mantendo o ritmo da banda.")
+        print(f"{self.nome}:'BADUM-TSS!'... Mantendo o ritmo da banda.")
     
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
@@ -85,7 +85,7 @@ class Saxofone(InstrumentoMusical):
 
     def tocar(self):
         """Sobrescrita criativa do método tocar."""
-        print(f"{self.nome}: 🎷 'Fooooommmm'... Aquele solo de jazz suave.")
+        print(f"{self.nome}:'Fooooommmm'... Aquele solo de jazz suave.")
 
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
@@ -99,7 +99,7 @@ class Violino(InstrumentoMusical):
 
     def tocar(self):
         """Sobrescrita criativa do método tocar."""
-        print(f"{self.nome}: 🎻 'Ziiiiim'... Notas altas e emocionantes da orquestra.")
+        print(f"{self.nome}: 'Ziiiiim'... Notas altas e emocionantes da orquestra.")
 
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
@@ -118,11 +118,23 @@ def executar_show(instrumentos: list[InstrumentoMusical]):
     Não importa qual é o instrumento (Violao, Piano, etc.),
     desde que ele "assine o contrato" de InstrumentoMusical.
     """
-    print("\n--- 🎶 O SHOW VAI COMEÇAR! 🎶 ---")
-    for instrumento in instrumentos:
-        # Chamada polimórfica!
-        instrumento.tocar()
-    print("--- 🎶 Show finalizado! Aplausos! 🎶 ---")
+
+    if not instrumentos: # Verificação de lista vazia
+        print("----------- Começar o Show ---------")
+        print("Nenhum instrumento selecionado para o show.")
+        return
+    elif len(instrumentos) == 1: # Teste de show solo
+        print("-------------- Começar Show Solo! --------------")
+        print(f"Apresentando um show solo especial de {instrumentos[0].nome}!")
+        instrumentos[0].tocar()
+        print("-------------  Show finalizado! Aplausos!  --------------")
+        return
+    else:
+        print("-------------- Começar Show em grupo! --------------")
+        for instrumento in instrumentos:
+        # Chamada polimórfica, para todos os instrumentos!
+            instrumento.tocar()
+    print("---------------  Show finalizado! Aplausos!  --------------")
 
 
 def preparar_orquestra(instrumentos: list[InstrumentoMusical]):
@@ -130,11 +142,14 @@ def preparar_orquestra(instrumentos: list[InstrumentoMusical]):
     Função extra de desafio (também polimórfica).
     Prepara os instrumentos antes do show, chamando afinar() de cada um.
     """
-    print("--- Preparando os instrumentos antes do show ---")
+    print("--------- Preparando os instrumentos antes do show ---------")
+    if not instrumentos:
+        print("Nenhum instrumento selecionado para afinar.")
+        return
     for instrumento in instrumentos:
         # Outra chamada polimórfica!
         instrumento.afinar()
-    print("--- Instrumentos prontos! ---")
+    print("--------------- Instrumentos prontos! ------------------")
 
 
 
@@ -153,16 +168,20 @@ if __name__ == "__main__":
     # 2. Montar a orquestra (uma lista de objetos InstrumentoMusical)
     orquestra = [meu_violao, meu_piano, minha_bateria, meu_sax, meu_violino]
 
-    # 3. Chamar a função extra (preparar/afinar)
-    preparar_orquestra(orquestra)
-
+    # 3. Chamar a função (preparar/afinar)
+    #preparar_orquestra() # Teste sem argumentos (falha pois a função espera um argumento "LISTA", é obrigatório).
+    #preparar_orquestra([]) # Teste de lista vazia, passo argumento "LISTA", porém vazio.
+    #preparar_orquestra([minha_bateria]) # Preparar instrumento solo.
+    preparar_orquestra(orquestra) # Preparar a orquestra completa.
+ 
+    
     # 4. Chamar a função polimórfica principal
-    executar_show(orquestra)
-    executar_show([])
-
-    # Teste de flexibilidade: e se for um show "solo"?
-    # função funciona com apenas um item.
-    # executar_show([meu_sax])
+    #executar_show() # Teste sem argumentos (falha pois a função espera um argumento "LISTA", é obrigatório).
+    #executar_show([]) # Teste de lista vazia
+    #executar_show([meu_sax]) # Teste de show solo
+    #executar_show([meu_violao, meu_piano]) # Show com dois instrumentos
+    #executar_show([minha_bateria])
+    executar_show(orquestra) # Show completo com todos os instrumentos
 
 
 # --- 5. Desafio Reflexivo (Opcional) ---
