@@ -29,6 +29,13 @@ class InstrumentoMusical(ABC):
         """
         print(f"Afinando o(a) {self.nome} (som genérico de afinação)...")
 
+    def trocar_instrumento(self):
+        """
+        Método para trocar o instrumento atual por outro.
+        
+        """
+        print(f"Trocando de {self.nome} ")
+
 
 # --- 2. Subclasses (Classes Concretas) ---
 # Cada classe representa um instrumento específico e herda de InstrumentoMusical.
@@ -48,6 +55,8 @@ class Violao(InstrumentoMusical):
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
         print(f"{self.nome}:'Girando as tarraxas... Tlim... tlim... TLOIM'. Afinado!")
+    
+        
 
 class Piano(InstrumentoMusical):
     """Representa um Piano."""
@@ -103,8 +112,7 @@ class Violino(InstrumentoMusical):
 
     def afinar(self):
         """Sobrescrita opcional do método afinar."""
-        print(f"{self.nome}: Apertando as cravelhas e usando o microafinador...")
-
+        print(f"{self.nome}: 'Tiiiiin... Tiiiin...'. Afinado com precisão!")
 
 # --- 3. Funções Polimórficas ---
 # Estas funções recebem uma lista de objetos (InstrumentoMusical)
@@ -153,12 +161,13 @@ def preparar_orquestra(instrumentos: list[InstrumentoMusical]):
 
 
 
-# --- 4. Execução Principal do Programa ---
+# --- Execução Principal do Programa ---
 # Bloco que será executado quando o script for rodado.
 
 if __name__ == "__main__":
     
     # 1. Criar os "músicos" (objetos de cada subclasse)
+
     meu_violao = Violao()
     meu_piano = Piano()
     minha_bateria = Bateria()
@@ -166,25 +175,29 @@ if __name__ == "__main__":
     meu_violino = Violino()
 
     # 2. Montar a orquestra (uma lista de objetos InstrumentoMusical)
+
     orquestra = [meu_violao, meu_piano, minha_bateria, meu_sax, meu_violino]
 
-    # 3. Chamar a função (preparar/afinar)
+    # 3. Chamar a função para (preparar/afinar) instrumentos
+
     #preparar_orquestra() # Teste sem argumentos (falha pois a função espera um argumento "LISTA", é obrigatório).
     #preparar_orquestra([]) # Teste de lista vazia, passo argumento "LISTA", porém vazio.
     #preparar_orquestra([minha_bateria]) # Preparar instrumento solo.
-    preparar_orquestra(orquestra) # Preparar a orquestra completa.
+    #preparar_orquestra(orquestra) # Preparar a orquestra completa.
  
     
-    # 4. Chamar a função polimórfica principal
+    # 4. Chamar a função polimórfica principal, para executar o show!
     #executar_show() # Teste sem argumentos (falha pois a função espera um argumento "LISTA", é obrigatório).
     #executar_show([]) # Teste de lista vazia
     #executar_show([meu_sax]) # Teste de show solo
     #executar_show([meu_violao, meu_piano]) # Show com dois instrumentos
     #executar_show([minha_bateria])
-    executar_show(orquestra) # Show completo com todos os instrumentos
+    #executar_show(orquestra) # Show completo com todos os instrumentos
 
 
-# --- 5. Desafio Reflexivo (Opcional) ---
+# --- 5. Chamar a função para (trocar instrumento) ---
+    meu_violao.trocar_instrumento()
+    #meu_piano.trocar_instrumento()
 
 """
 P: “Por que o polimorfismo é importante em sistemas orientados a objetos? 
