@@ -31,10 +31,10 @@ class InstrumentoMusical(ABC):
 
     def trocar_instrumento(self):
         """
-        Método para trocar o instrumento atual por outro.
+        Método para trocar o instrumento.
         
         """
-        print(f"Trocando de {self.nome} ")
+        print(f"Trocando a(o) {self.nome} ")
 
 
 # --- 2. Subclasses (Classes Concretas) ---
@@ -49,7 +49,7 @@ class Violao(InstrumentoMusical):
         super().__init__("Violão")
 
     def tocar(self):
-        """Sobrescrita criativa do método tocar."""
+        """Sobrescrita do método tocar."""
         print(f"{self.nome}:'Strumming chords'... Soando um belo dedilhado clássico.")
 
     def afinar(self):
@@ -65,7 +65,7 @@ class Piano(InstrumentoMusical):
         super().__init__("Piano")
 
     def tocar(self):
-        """Sobrescrita criativa do método tocar."""
+        """Sobrescrita do método tocar."""
         print(f"{self.nome}:'Plin plin plon'... Tocando uma sonata de Beethoven.")
     
     def afinar(self):
@@ -131,12 +131,7 @@ def executar_show(instrumentos: list[InstrumentoMusical]):
         print("----------- Começar o Show ---------")
         print("Nenhum instrumento selecionado para o show.")
         return
-    elif len(instrumentos) == 1: # Teste de show solo
-        print("-------------- Começar Show Solo! --------------")
-        print(f"Apresentando um show solo especial de {instrumentos[0].nome}!")
-        instrumentos[0].tocar()
-        print("-------------  Show finalizado! Aplausos!  --------------")
-        return
+    
     else:
         print("-------------- Começar Show em grupo! --------------")
         for instrumento in instrumentos:
@@ -147,17 +142,17 @@ def executar_show(instrumentos: list[InstrumentoMusical]):
 
 def preparar_orquestra(instrumentos: list[InstrumentoMusical]):
     """
-    Função extra de desafio (também polimórfica).
+    Função para preparar os instrumentos antes do show.
     Prepara os instrumentos antes do show, chamando afinar() de cada um.
     """
-    print("--------- Preparando os instrumentos antes do show ---------")
+    print("--------- Preparando os instrumentos antes do show ---------\n")
     if not instrumentos:
         print("Nenhum instrumento selecionado para afinar.")
         return
     for instrumento in instrumentos:
         # Outra chamada polimórfica!
         instrumento.afinar()
-    print("--------------- Instrumentos prontos! ------------------")
+    print("\n--------------- Instrumentos prontos! ------------------")
 
 
 
@@ -183,7 +178,7 @@ if __name__ == "__main__":
     #preparar_orquestra() # Teste sem argumentos (falha pois a função espera um argumento "LISTA", é obrigatório).
     #preparar_orquestra([]) # Teste de lista vazia, passo argumento "LISTA", porém vazio.
     #preparar_orquestra([minha_bateria]) # Preparar instrumento solo.
-    #preparar_orquestra(orquestra) # Preparar a orquestra completa.
+    preparar_orquestra(orquestra) # Preparar a orquestra completa.
  
     
     # 4. Chamar a função polimórfica principal, para executar o show!
@@ -192,11 +187,11 @@ if __name__ == "__main__":
     #executar_show([meu_sax]) # Teste de show solo
     #executar_show([meu_violao, meu_piano]) # Show com dois instrumentos
     #executar_show([minha_bateria])
-    #executar_show(orquestra) # Show completo com todos os instrumentos
+    executar_show(orquestra) # Show completo com todos os instrumentos
 
 
 # --- 5. Chamar a função para (trocar instrumento) ---
-    meu_violao.trocar_instrumento()
+    #meu_violao.trocar_instrumento()
     #meu_piano.trocar_instrumento()
 
 """
@@ -204,18 +199,17 @@ P: “Por que o polimorfismo é importante em sistemas orientados a objetos?
     Cite um exemplo prático do mundo real em que ele seria útil.”
 
 R: O polimorfismo é crucial porque permite que tratemos objetos de classes 
-diferentes (mas que compartilham uma superclasse ou interface comum) 
-de maneira uniforme. Isso torna o código muito mais flexível, extensível 
-e limpo. Em vez de escrever um 'if' para cada tipo de objeto 
-(ex: se for violão, faça X; se for piano, faça Y), podemos 
-simplesmente chamar o mesmo método (ex: instrumento.tocar()) e deixar 
-que o próprio objeto decida como executar a ação.
+diferentes mas que compartilham uma superclasse comum de maneira uniforme. 
+Isso torna o código muito mais flexível, extensível e limpo. Em vez de 
+escrever um 'if' para cada tipo de objeto (ex: se for violão, faça X; se 
+for piano, faça Y), podemos simplesmente chamar o mesmo método (ex: 
+instrumento.tocar()) e deixar que o próprio objeto decida como executar 
+a ação.
 
 Exemplo prático: Um sistema de e-commerce com diferentes métodos de 
-pagamento (CartaoDeCredito, Boleto, Pix). Todos podem herdar de uma 
+pagamento (Credito, Debito, Boleto, Pix). Todos podem herdar de uma 
 classe 'MetodoPagamento' e implementar um método 'processar_pagamento()'. 
-O carrinho de compras não precisa saber os detalhes de cada um; ele 
+O carrinho de compras não precisa saber os detalhes de cada um, ele 
 apenas chama 'pagamento.processar_pagamento()' e o polimorfismo 
-garante que a lógica correta (seja validar o cartão ou gerar o QR Code 
-do Pix) seja executada.
+garante que a lógica correta seja executada.
 """
