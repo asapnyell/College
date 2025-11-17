@@ -12,7 +12,7 @@ class Setor:
     def __init__(self, nome):
         self.nome = nome
         
-        # --- COMENTÁRIO: AGREGAÇÃO (Setor ◇ Medico) ---
+        # --- AGREGAÇÃO (Setor ◇ Medico) ---
         # O Setor agrupa Médicos, que são objetos independentes
         # e podem, inclusive, atuar em múltiplos setores.
         self.medicos = []
@@ -29,7 +29,7 @@ class Hospital:
     def __init__(self, nome):
         self.nome = nome
         
-        # --- COMENTÁRIO: COMPOSIÇÃO (Hospital ◆ Setor) ---
+        # --- COMPOSIÇÃO (Hospital ◆ Setor) ---
         # O Hospital cria e 'possui' seus Setores (ex: alas).
         # A estrutura física/organizacional do hospital define os setores.
         self.setores = [
