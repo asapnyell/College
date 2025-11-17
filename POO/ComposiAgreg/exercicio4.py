@@ -12,7 +12,7 @@ class Departamento:
     def __init__(self, nome):
         self.nome = nome
         
-        # --- COMENTÁRIO: AGREGAÇÃO (Departamento ◇ Funcionario) ---
+        # --- AGREGAÇÃO (Departamento ◇ Funcionario) ---
         # O Departamento agrupa Funcionários, que são objetos
         # independentes criados fora da classe.
         self.funcionarios = []
@@ -29,7 +29,7 @@ class Empresa:
     def __init__(self, nome_empresa):
         self.nome = nome_empresa
         
-        # --- COMENTÁRIO: COMPOSIÇÃO (Empresa ◆ Departamento) ---
+        # --- COMPOSIÇÃO (Empresa ◆ Departamento) ---
         # A Empresa cria e 'possui' seus Departamentos.
         # A estrutura da empresa define os departamentos.
         self.departamentos = [
