@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagrama — Sistema Escolar (Mermaid)</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+  <style>body{font-family:system-ui,Arial,Helvetica,sans-serif;margin:20px}</style>
+</head>
+<body>
+  <h2>Diagrama UML — Sistema Escolar (Mermaid)</h2>
+  <div class="mermaid">
+classDiagram
+    %% Classes
+    class Exception
+    class NotaInvalidaError {
+      +message: str
+      +__init__(nota)
+    }
+
+    class Pessoa {
+      +nome: str
+      +cpf: str
+      +__str__(): str
+    }
+
+    class Professor {
+      +especialidade: str
+      +__str__(): str
+    }
+
+    class Aluno {
+      -__notas: list[float]
+      +matricula: str
+      +adicionar_nota(nota)
+      +media: float
+      +__str__(): str
+    }
+
+    class Turma {
+      +nome_disciplina: str
+      +professor: Professor
+      +alunos: list[Aluno]
+      +matricular_aluno(aluno)
+      +listar_alunos()
+    }
+
+    %% Heranças
+    Exception <|-- NotaInvalidaError
+    Pessoa <|-- Professor
+    Pessoa <|-- Aluno
+
+    %% Associações
+    Turma --> "1" Professor : regente
+    Turma o-- "*" Aluno : alunos
+
+    %% Notas
+    note for Aluno "Encapsulamento: atributo privado `__notas`\nacessível via métodos e `@property media`."
+    note for NotaInvalidaError "Exceção personalizada para notas fora de 0..10."
+  </div>
+  <p>Abra este arquivo no navegador para visualizar o diagrama. Use o menu do navegador ou uma ferramenta de captura para salvar como PNG/SVG.</p>
+</body>
+</html>
