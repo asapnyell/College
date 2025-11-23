@@ -1,0 +1,47 @@
+classDiagram
+    %% Classes
+    class Exception
+    class NotaInvalidaError {
+      +message: str
+      +__init__(nota)
+    }
+
+    class Pessoa {
+      +nome: str
+      +cpf: str
+      +__str__(): str
+    }
+
+    class Professor {
+      +especialidade: str
+      +__str__(): str
+    }
+
+    class Aluno {
+      -__notas: list[float]
+      +matricula: str
+      +adicionar_nota(nota)
+      +media: float
+      +__str__(): str
+    }
+
+    class Turma {
+      +nome_disciplina: str
+      +professor: Professor
+      +alunos: list[Aluno]
+      +matricular_aluno(aluno)
+      +listar_alunos()
+    }
+
+    %% Heranças
+    Exception <|-- NotaInvalidaError
+    Pessoa <|-- Professor
+    Pessoa <|-- Aluno
+
+    %% Associações
+    Turma --> "1" Professor : regente
+    Turma o-- "*" Aluno : alunos
+
+    %% Notas
+    note for Aluno "Encapsulamento: atributo privado `__notas`\nacessível via métodos e `@property media`."
+    note for NotaInvalidaError "Exceção personalizada para notas fora de 0..10."
