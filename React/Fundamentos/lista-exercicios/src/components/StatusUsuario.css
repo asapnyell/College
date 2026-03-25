@@ -1,0 +1,7 @@
+.status-container {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.usuario-ativo { font-weight: bold; color: green; align-items: center; justify-content: center; display: flex; }
+.usuario-inativo {  font-weight: bold; color: red; align-items: center; justify-content: center; display: flex; }

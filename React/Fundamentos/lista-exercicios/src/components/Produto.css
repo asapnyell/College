@@ -1,0 +1,3 @@
+.produto-card { border: 1px solid #ddd; padding: 15px; border-radius: 4px; }
+.em-estoque { color: #2e7d32; background: #e8f5e9; display: inline-block; padding: 4px 8px; }
+.esgotado { color: #c62828; background: #ffebee; display: inline-block; padding: 4px 8px; }
