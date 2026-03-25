@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação das Contas - MóveisDecor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        
+        .classification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .section {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .patrimoniais .section-title {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+        
+        .resultado .section-title {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .ativo { background: linear-gradient(45deg, #27ae60, #229954); }
+        .passivo { background: linear-gradient(45deg, #e67e22, #d35400); }
+        .patrimonio { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+        .receitas { background: linear-gradient(45deg, #2ecc71, #27ae60); }
+        .custos { background: linear-gradient(45deg, #f39c12, #e67e22); }
+        .despesas { background: linear-gradient(45deg, #e74c3c, #c0392b); }
+        
+        .account-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .account-item {
+            background: white;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .account-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .account-item::before {
+            content: "•";
+            color: #3498db;
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        .main-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid;
+        }
+        
+        .patrimoniais-card {
+            border-top-color: #3498db;
+        }
+        
+        .resultado-card {
+            border-top-color: #e74c3c;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 5px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Classificação das Contas Contábeis</h1>
+            <div class="subtitle">MóveisDecor - Análise Patrimonial e de Resultado</div>
+        </div>
+
+        <div class="info-box">
+            <strong>Objetivo:</strong> Classificar as contas em patrimoniais (Balanço Patrimonial) e de resultado (DRE) para análise da saúde financeira da empresa
+        </div>
+
+        <div class="main-categories">
+            <div class="category-card patrimoniais-card">
+                <h2 style="color: #3498db; margin-top: 0;">🏛️ CONTAS PATRIMONIAIS</h2>
+                <p><strong>Definição:</strong> Representam bens, direitos e obrigações da empresa em uma data específica. Aparecem no Balanço Patrimonial.</p>
+            </div>
+            <div class="category-card resultado-card">
+                <h2 style="color: #e74c3c; margin-top: 0;">📈 CONTAS DE RESULTADO</h2>
+                <p><strong>Definição:</strong> Representam receitas, custos e despesas de um período. Aparecem na Demonstração do Resultado do Exercício (DRE).</p>
+            </div>
+
+        </div>
+
+        <div class="classification-grid">
+            <!-- PATRIMONIO -->
+            <div class="section">
+                <div class="section-title ativo">💰 PATRIMONIAL</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Caixa</li>
+                    <li class="account-item">2. Bancos</li>
+                    <li class="account-item">3. Estoques de móveis</li>
+                    <li class="account-item">4. Veículos para entrega</li>
+                    <li class="account-item">5. Imóveis para uso</li>
+                    <li class="account-item">6. Duplicatas a receber</li>
+                    <li class="account-item">7. Empréstimo a pagar</li>
+                    <li class="account-item">8. Capital Social</li>
+                </ul>
+            </div>
+
+             <!-- RESULTADO -->
+            <div class="section">
+                <div class="section-title ativo" style="background: linear-gradient(45deg,blue, #506df0)">📈 RESULTADO</div>
+                <ul class="account-list">
+                    <li class="account-item">1.  Receita de vendas de móveis</li>
+                    <li class="account-item">2. Receita, de serviço de entrega</li>
+                    <li class="account-item">3. Descontos concedidos</li>
+                    <li class="account-item">4.  Devolução de vendas</li>
+                    <li class="account-item">5. Custo das mercadorias vendidas</li>
+                    <li class="account-item">6. Despesa com folha de pagamento</li>
+                    <li class="account-item">7. Despesas com aluguel</li>
+                    <li class="account-item">8. Despesa com publicidade e marketing</li>
+                    <li class="account-item">9. Despesas com depreciação de móveis</li>
+                    <li class="account-item">10. Despesas financeiras</li>
+                     <li class="account-item">11.Impostos sobre vendas.</li>
+                </ul>
+            </div>
+
+            <!-- ATIVO -->
+            <div class="section">
+                <div class="section-title ativo">💰 ATIVO</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Caixa</li>
+                    <li class="account-item">2. Bancos</li>
+                    <li class="account-item">3. Estoques de móveis</li>
+                    <li class="account-item">4. Veículos para entrega</li>
+                    <li class="account-item">5. Imóveis para uso</li>
+                    <li class="account-item">6. Duplicatas a receber</li>
+
+                </ul>
+            </div>
+
+            <!-- PASSIVO -->
+            <div class="section">
+                <div class="section-title passivo">📋 PASSIVO</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Duplicatas a pagar</li>
+                    <li class="account-item">2. Empréstimos a pagar</li>
+                    
+                </ul>
+            </div>
+
+            <!-- PATRIMÔNIO LÍQUIDO -->
+            <div class="section">
+                <div class="section-title patrimonio">🏆 PATRIMÔNIO LÍQUIDO</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Capital social</li>
+                </ul>
+            </div>
+
+            <!-- RECEITAS -->
+            <div class="section">
+                <div class="section-title receitas">💚 RECEITAS</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Receita de vendas de móveis</li>
+                    <li class="account-item">2. Receita de serviços de entrega</li>
+                    <li class="account-item">3. Descontos concedidos</li>
+                    <li class="account-item">4. Devoluções de vendas</li>
+                    <li class="account-item">5. Receitas financeiras</li>
+                    <li class="account-item">6. Impostos sobre vendas</li>
+                </ul>
+            </div>
+
+            <!-- CUSTOS -->
+            <div class="section">
+                <div class="section-title custos">🟡 CUSTOS</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Custo das mercadorias vendidas</li>
+                </ul>
+            </div>
+
+            <!-- DESPESAS -->
+            <div class="section">
+                <div class="section-title despesas">🔴 DESPESAS</div>
+                <ul class="account-list">
+                    <li class="account-item">1. Despesas com folha de pagamento</li>
+                    <li class="account-item">2. Descontos concedidos</li>
+                    <li class="account-item">3. Despesas com publicidade e marketing</li>
+                    <li class="account-item">4. Despesas com depreciação de móveis</li>
+                    <li class="account-item">5. Despesas financeiras</li>
+                    <li class="account-item">6. Despesas com aluguel</li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h3 style="color: #2c3e50;">📝 Resumo da Classificação</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div><strong>Ativo:</strong> 6 contas</div>
+                <div><strong>Passivo:</strong> 2 contas</div>
+                <div><strong>Patrimônio Líquido:</strong> 1 conta</div>
+                <div><strong>Receitas:</strong> 6 contas</div>
+                <div><strong>Custos:</strong> 1 conta</div>
+                <div><strong>Despesas:</strong> 6 contas</div>
+            </div>
+            <p style="margin-top: 20px; color: #7f8c8d;">
+                <strong>Observação:</strong> Esta classificação permitirá à MóveisDecor elaborar o Balanço Patrimonial (contas patrimoniais) e a DRE (contas de resultado), fornecendo uma visão completa da situação financeira e do desempenho da empresa.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
