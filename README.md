@@ -31,7 +31,26 @@ Repositório dedicado ao registro da minha evolução em programação na faculd
 
 ---
 
-## ⚛️ Web Development (Em progresso)
+## ⚛️ Web Development 
+
+## 🟨 JavaScript
+
+### 🧱 Fundamentos Core
+- [ ] Escopo de Variáveis (`var`, `let`, `const`)
+- [ ] Arrow Functions e Funções Anônimas
+- [ ] Template Literals e Destructuring
+- [ ] Operadores Spread e Rest (`...`)
+
+### ⚡ Assincronismo & APIs
+- [ ] Event Loop e Callbacks
+- [ ] Promises (`.then()`, `.catch()`)
+- [ ] Async / Await (Essencial para integração com Banco de Dados)
+- [ ] Fetch API / Axios para consumo de dados
+
+### 🌐 JavaScript no Navegador (DOM)
+- [ ] Seleção e Manipulação de Elementos
+- [ ] Event Listeners (Clicks, Inputs, Forms)
+- [ ] Armazenamento Local (localStorage / sessionStorage)
 
 ### 🚀 React.js
 - [ ] JSX e Componentização
@@ -41,7 +60,5 @@ Repositório dedicado ao registro da minha evolução em programação na faculd
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-![Python](https://img.shields.io)
-![React](https://img.shields.io)
+
 
