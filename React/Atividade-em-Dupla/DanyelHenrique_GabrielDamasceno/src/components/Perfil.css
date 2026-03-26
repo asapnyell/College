@@ -1,0 +1,18 @@
+.perfil-card {
+  border: 2px solid #646cff;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #213547;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.status-badge {
+  color: #ffffff;
+  background-color: #646cff;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}

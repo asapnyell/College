@@ -1,0 +1,29 @@
+.acao-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-acao {
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-acao:hover {
+  background-color: #45a049;
+  transform: translateY(-2px); /* Pequeno efeito de elevação */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-acao:active {
+  transform: translateY(0);
+  background-color: #3e8e41;
+}
