@@ -1,0 +1,66 @@
+.calculadora {
+  max-width: 460px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 28px auto;
+  padding: 18px;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.inputs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.inputs input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6e9ee;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.botoes {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.botoes button {
+  min-width: 48px;
+  padding: 10px 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .08s ease, opacity .08s ease;
+}
+
+.botoes button:nth-child(2) { background: #ef4444 }
+.botoes button:nth-child(3) { background: #10b981 }
+.botoes button:nth-child(4) { background: #f59e0b }
+.botoes button:nth-child(5) { background: #6b7280 }
+
+.botoes button:hover { opacity: 0.95; transform: translateY(-2px) }
+
+.resultado {
+  text-align: center;
+  font-size: 18px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eef2f7;
+}
+
+.resultado span { font-weight: 700; margin-left: 8px }
+
